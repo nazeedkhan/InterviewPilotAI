@@ -2,6 +2,7 @@ import React from "react";
 import { IoSparklesSharp } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 import { motion } from "motion/react";
+import bot from "../assets/bot.png";
 import axios from "axios";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../utils/firebase";
@@ -25,10 +26,10 @@ const Auth = ({ isModel = false }) => {
         { name, email },
         { withCredentials: true },
       );
-      
+
       // credentials true karne se sensitive info like token, authorization, headers jaisi info ko exchange kar sakte hai (ye backend me bhi karna hota hai cors ke ander)
       console.log("credit included, UserPosted: ", userPosted.data);
-      dispatch(setUsersData((userPosted.data.user)));
+      dispatch(setUsersData(userPosted.data.user));
     } catch (error) {
       console.log("Authentication Error : ", error);
       dispatch(setUsersData(null));
@@ -47,11 +48,7 @@ const Auth = ({ isModel = false }) => {
           className={`w-full ${isModel ? "max-w-md p-8 rounded-3xl " : "max-w-lg p-12 rounded-lg"} bg-white shadow-2xl border border-gray-200 `}
         >
           <div className="flex justify-center items-center gap-3">
-            <img
-              className="size-6 p-0"
-              src="../src/assets/bot.png"
-              alt="icon_img"
-            />
+            <img className="size-6 p-0" src={bot} alt="icon_img" />
             <h2 className="font-semibold text-lg">InterviewPilot.AI</h2>
           </div>
           <div className="flex gap-1 justify-center items-center flex-col mt-4 text-[17px] font-semibold">
