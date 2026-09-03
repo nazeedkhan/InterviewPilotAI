@@ -1,4 +1,5 @@
 import multer from "multer";
+import path from "path";
 // express.json() se hum log sirf text data hi frontend se backend bhej sakte hai files nahi.
 // multer is a middleware-> pdf files ya pictures ko backend me laane ka or unko server ke localdisk me save krne ka kaam karta hai.
 
@@ -7,7 +8,7 @@ const storage = multer.diskStorage({
     // file means jo file hum bhej rahe hai.
     // callback se hi multer se baat kr sakte hai command de sakte hai.
     // null means no error destination is public folder.
-    callback(null, "public");
+    callback(null, path.resolve("public"));
   },
   filename: function (req, file, callback) {
     const filename = Date.now() + "-" + file.originalname;
