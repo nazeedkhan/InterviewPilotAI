@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "motion/react";
+import bot from "../assets/bot.png";
 import { BsRobot } from "react-icons/bs";
 import { HiOutlineLogout } from "react-icons/hi";
 import { FaUserAstronaut } from "react-icons/fa";
@@ -82,7 +83,7 @@ const Navbar = () => {
           <NavLink to={"/"} className="flex items-center gap-3 cursor-pointer">
             <img
               className="size-8 p-0"
-              src="../src/assets/bot.png"
+              src={bot}
               alt="icon_img"
             />
             <h1 className="font-semibold hidden md:block text-lg">
