@@ -13,6 +13,9 @@ export const analyzeResume = async (req, res) => {
 
     // resume file ka path le rahe hai jo public me hoga
     const filepath = req.file.path;
+    console.log("Uploaded file:", req.file);
+    console.log("Filepath:", filepath);
+    console.log("File exists:", fs.existsSync(filepath));
     // console.log("filepath resume ka : ", filepath);
 
     // inbuilt nodejs me ek 'fs' module hota hai jo kisi bhi file me CRUD karne ke liye hota hai. Ye file ka filepath maangta hai isiliye hum filepath le rahe hai uper step me.

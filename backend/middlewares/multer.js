@@ -4,11 +4,14 @@ import path from "path";
 // multer is a middleware-> pdf files ya pictures ko backend me laane ka or unko server ke localdisk me save krne ka kaam karta hai.
 
 const storage = multer.diskStorage({
+  // file means jo file hum bhej rahe hai.
+  // callback se hi multer se baat kr sakte hai command de sakte hai.
+  // null means no error destination is public folder.
+
   destination: function (req, file, callback) {
-    // file means jo file hum bhej rahe hai.
-    // callback se hi multer se baat kr sakte hai command de sakte hai.
-    // null means no error destination is public folder.
-    callback(null, path.resolve("public"));
+    const uploadPath = path.resolve("public");
+    console.log("Multer upload path:", uploadPath);
+    callback(null, uploadPath);
   },
   filename: function (req, file, callback) {
     const filename = Date.now() + "-" + file.originalname;
